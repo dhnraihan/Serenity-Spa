@@ -1,46 +1,95 @@
-# Getting Started with Create React App
+# Serenity Spa & Wellness Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A responsive and user-friendly website for Serenity Spa & Wellness showcasing services, pricing, booking options, and customer testimonials.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Home Page**: Hero section with tagline and 'Book Now' CTA, service gallery preview, testimonials slider, and "why choose us" section
+- **Services Page**: Categorized services with descriptions and pricing
+- **Booking Page**: Online booking form with email notifications
+- **About Us Page**: Spa history and team member information
+- **Contact Page**: Address, phone, email, embedded Google Map, and contact form
+- **Gallery & Testimonials Page**: Client reviews and photos of services and spa environment
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **Frontend**: React.js with TypeScript
+- **Styling**: Tailwind CSS
+- **Animation**: Framer Motion
+- **Form Handling**: Formik with Yup validation
+- **Email Integration**: EmailJS (configured but requires your credentials)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js (v14 or higher)
+- npm or yarn
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository
+   ```bash
+   git clone https://github.com/dhnraihan/serenity-spa.git
+   cd serenity-spa
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Install dependencies
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Start the development server
+   ```bash
+   npm start
+   # or
+   yarn start
+   ```
 
-### `npm run eject`
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Configuring EmailJS (for Production)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To enable the contact and booking forms to send emails:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. Sign up for an account at [EmailJS](https://www.emailjs.com/)
+2. Create a service and email template
+3. Uncomment and update the EmailJS configuration in `src/pages/BookingPage.tsx` and `src/pages/ContactPage.tsx` with your credentials:
+   ```javascript
+   await emailjs.send(
+     'YOUR_SERVICE_ID',
+     'YOUR_TEMPLATE_ID',
+     values,
+     'YOUR_USER_ID'
+   );
+   ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Deployment
 
-## Learn More
+Build the project for production:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm run build
+# or
+yarn build
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This will create a `build` folder with optimized production files that can be deployed to any static hosting service.
+
+## Customization
+
+- **Colors**: Edit the color scheme in `tailwind.config.js`
+- **Content**: Update text, images, and service information in the respective component files
+- **Google Map**: Replace the iframe source in `ContactPage.tsx` with your actual Google Maps embed code
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgements
+
+- Images from [Unsplash](https://unsplash.com/)
+- Icons from [React Icons](https://react-icons.github.io/react-icons/)
+# Serenity-Spa
