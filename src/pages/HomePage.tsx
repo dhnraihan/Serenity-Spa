@@ -2,31 +2,29 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
+import { heroImage } from '../data/services';
 
-// Placeholder for hero image - replace with actual image path in actual implementation
-const heroImage = "https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80";
-
-// Sample service data
+// Featured services from our data
 const featuredServices = [
   {
     id: 1,
     title: "Aromatherapy Massage",
     description: "Relax with our signature aromatherapy massage using essential oils.",
-    image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
+    image: require('../assets/images/aromatherapy-massage.jpg'),
     price: "$85"
   },
   {
     id: 2,
     title: "Deep Tissue Massage",
     description: "Alleviate muscle pain and tension with our therapeutic deep tissue massage.",
-    image: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1748&q=80",
+    image: require('../assets/images/deep-tissue-massage.jpg'),
     price: "$95"
   },
   {
     id: 3,
     title: "Revitalizing Facial",
     description: "Rejuvenate your skin with our customized facial treatment.",
-    image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
+    image: require('../assets/images/classic-facial.jpg'),
     price: "$75"
   }
 ];

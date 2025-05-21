@@ -4,6 +4,8 @@ import * as Yup from 'yup';
 import emailjs from 'emailjs-com';
 import { motion } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
+import heroBg from '../assets/images/hero-bg.jpg';
+
 
 // Sample service data - would typically come from an API or database
 const services = [
@@ -96,18 +98,22 @@ const BookingPage = () => {
   });
 
   return (
-    <div className="pt-24">
+    <div className="pt-20">
       {/* Hero Banner */}
-      <div className="bg-secondary/30 py-12">
-        <div className="container">
+      <div 
+        className="py-20 bg-cover bg-center" 
+        style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${heroBg})` }}
+      >
+        <div className="container text-center text-white">
           <h1 className="text-4xl font-serif mb-4">Book Your Appointment</h1>
-          <p className="text-lg max-w-3xl">
+          <p className="text-lg max-w-3xl mx-auto">
             Schedule your spa experience online. Please fill out the form below and we will confirm your appointment.
           </p>
         </div>
       </div>
 
-      <section className="section">
+
+      <section className="appointment">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Booking Form */}

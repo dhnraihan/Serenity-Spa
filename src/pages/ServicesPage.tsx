@@ -1,142 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-
-// Sample service categories and services data
-const serviceCategories = [
-  {
-    id: 'massages',
-    name: 'Massages',
-    description: 'Our therapeutic massages are designed to relax, rejuvenate, and restore your body and mind.',
-    services: [
-      {
-        id: 1,
-        name: 'Swedish Massage',
-        description: 'A gentle full-body massage designed to relax muscles, improve circulation, and reduce tension.',
-        duration: '60 min',
-        price: '$75',
-        image: 'https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80'
-      },
-      {
-        id: 2,
-        name: 'Deep Tissue Massage',
-        description: 'Targets the deeper layers of muscle and connective tissue to alleviate chronic muscle tension.',
-        duration: '60 min',
-        price: '$95',
-        image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1748&q=80'
-      },
-      {
-        id: 3,
-        name: 'Aromatherapy Massage',
-        description: 'Combines therapeutic massage with essential oils to enhance relaxation and wellbeing.',
-        duration: '75 min',
-        price: '$85',
-        image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80'
-      },
-      {
-        id: 4,
-        name: 'Hot Stone Massage',
-        description: 'Uses heated stones to loosen tight muscles and improve circulation.',
-        duration: '90 min',
-        price: '$110',
-        image: 'https://images.unsplash.com/photo-1600334130076-77ce4f6c7818?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80'
-      }
-    ]
-  },
-  {
-    id: 'facials',
-    name: 'Facials',
-    description: 'Our facial treatments use premium products to cleanse, exfoliate, and nourish your skin.',
-    services: [
-      {
-        id: 5,
-        name: 'Classic Facial',
-        description: 'A thorough cleansing and moisturizing treatment customized for your skin type.',
-        duration: '45 min',
-        price: '$65',
-        image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80'
-      },
-      {
-        id: 6,
-        name: 'Anti-Aging Facial',
-        description: 'Targets fine lines and wrinkles using powerful antioxidants and peptides.',
-        duration: '60 min',
-        price: '$85',
-        image: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80'
-      },
-      {
-        id: 7,
-        name: 'Hydrating Facial',
-        description: 'Replenishes moisture to dry and dehydrated skin for a radiant complexion.',
-        duration: '60 min',
-        price: '$75',
-        image: 'https://images.unsplash.com/photo-1596178060671-7a80dc8059ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1752&q=80'
-      }
-    ]
-  },
-  {
-    id: 'body',
-    name: 'Body Treatments',
-    description: 'Pamper your body with our luxurious scrubs, wraps, and specialized treatments.',
-    services: [
-      {
-        id: 8,
-        name: 'Body Scrub',
-        description: 'Exfoliates dead skin cells for smoother, softer skin.',
-        duration: '45 min',
-        price: '$70',
-        image: 'https://images.unsplash.com/photo-1600334089960-6dca8078157d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80'
-      },
-      {
-        id: 9,
-        name: 'Detox Body Wrap',
-        description: 'Helps eliminate toxins and reduce water retention using natural ingredients.',
-        duration: '60 min',
-        price: '$90',
-        image: 'https://images.unsplash.com/photo-1611072172377-0cabc3addb25?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80'
-      },
-      {
-        id: 10,
-        name: 'Milk and Honey Body Wrap',
-        description: 'Nourishes and hydrates skin with the healing properties of milk and honey.',
-        duration: '75 min',
-        price: '$95',
-        image: 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80'
-      }
-    ]
-  },
-  {
-    id: 'packages',
-    name: 'Spa Packages',
-    description: 'Experience the ultimate in relaxation with our comprehensive spa packages.',
-    services: [
-      {
-        id: 11,
-        name: 'Serenity Signature Package',
-        description: 'Includes a full-body massage, facial, and reflexology treatment.',
-        duration: '3 hours',
-        price: '$220',
-        image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80'
-      },
-      {
-        id: 12,
-        name: 'Couples Retreat',
-        description: 'Side-by-side massages followed by a private spa bath for two.',
-        duration: '2 hours',
-        price: '$250',
-        image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80'
-      },
-      {
-        id: 13,
-        name: 'Ultimate Relaxation Day',
-        description: 'A full day of pampering including massage, facial, body wrap, manicure, pedicure, and lunch.',
-        duration: '6 hours',
-        price: '$400',
-        image: 'https://images.unsplash.com/photo-1560750588-73207b1ef5b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1745&q=80'
-      }
-    ]
-  }
-];
+import { serviceCategories } from '../data/services';
+import heroBg from '../assets/images/hero-bg.jpg';
 
 const ServicesPage = () => {
   const [activeCategory, setActiveCategory] = useState('massages');
@@ -146,12 +12,15 @@ const ServicesPage = () => {
   };
 
   return (
-    <div className="pt-24">
+    <div className="pt-20">
       {/* Hero Banner */}
-      <div className="bg-secondary/30 py-12">
-        <div className="container">
+      <div 
+        className="py-[70px] bg-cover bg-center" 
+        style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${heroBg})` }}
+      >
+        <div className="container text-center text-white">
           <h1 className="text-4xl font-serif mb-4">Our Services</h1>
-          <p className="text-lg max-w-3xl">
+          <p className="text-lg max-w-3xl mx-auto">
             Discover our range of premium spa services designed to rejuvenate your body, mind, and spirit.
             Each treatment is performed by our expert therapists using the finest products.
           </p>

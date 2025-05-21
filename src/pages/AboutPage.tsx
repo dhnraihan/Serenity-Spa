@@ -2,6 +2,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import * as FiIcons from 'react-icons/fi';
+import heroBg from '../assets/images/hero-bg.jpg';
+import spaInterior from '../assets/images/spa-interior.jpg';
+import team1Img from '../assets/images/team1.jpg';
+import team2Img from '../assets/images/team2.jpg';
+import team3Img from '../assets/images/team3.jpg';
+import team4Img from '../assets/images/team4.jpg';
+import wellnessStone from '../assets/images/wellness-stone.jpg';
 
 // Team member data
 const teamMembers = [
@@ -11,7 +18,7 @@ const teamMembers = [
     role: 'Founder & Lead Therapist',
     bio: 'Emily has over 15 years of experience in the spa industry. She founded Serenity Spa with a vision to create a sanctuary of wellness and relaxation.',
     specialties: ['Deep Tissue Massage', 'Aromatherapy', 'Reflexology'],
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80'
+    image: team1Img
   },
   {
     id: 2,
@@ -19,7 +26,7 @@ const teamMembers = [
     role: 'Senior Massage Therapist',
     bio: 'Michael specializes in therapeutic massage techniques that alleviate chronic pain and improve mobility. His dedicated approach has helped countless clients.',
     specialties: ['Sports Massage', 'Swedish Massage', 'Hot Stone Therapy'],
-    image: 'https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1634&q=80'
+    image: team2Img
   },
   {
     id: 3,
@@ -27,7 +34,7 @@ const teamMembers = [
     role: 'Skincare Specialist',
     bio: 'With a background in dermatology, Sophia brings scientific expertise to our facial treatments. She is passionate about helping clients achieve their healthiest skin.',
     specialties: ['Anti-Aging Facials', 'Acne Treatment', 'Chemical Peels'],
-    image: 'https://images.unsplash.com/photo-1542740348-39501cd6e2b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80'
+    image: team3Img
   },
   {
     id: 4,
@@ -35,18 +42,21 @@ const teamMembers = [
     role: 'Wellness Coordinator',
     bio: "David ensures that every client's experience is seamless and personalized. He oversees our service menu and wellness programs to deliver exceptional experiences.",
     specialties: ['Client Relations', 'Treatment Planning', 'Wellness Education'],
-    image: 'https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80'
+    image: team4Img
   }
 ];
 
 const AboutPage = () => {
   return (
-    <div className="pt-24">
+    <div className="pt-20">
       {/* Hero Banner */}
-      <div className="bg-secondary/30 py-12">
-        <div className="container">
+      <div 
+        className="py-20 bg-cover bg-center" 
+        style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${heroBg})` }}
+      >
+        <div className="container text-center text-white">
           <h1 className="text-4xl font-serif mb-4">About Serenity Spa & Wellness</h1>
-          <p className="text-lg max-w-3xl">
+          <p className="text-lg max-w-3xl mx-auto">
             Discover our journey, values, and the passionate team behind our exceptional spa experiences.
           </p>
         </div>
@@ -88,7 +98,7 @@ const AboutPage = () => {
             >
               <div className="aspect-ratio-1/1 rounded-lg overflow-hidden shadow-lg">
                 <img
-                  src="https://images.unsplash.com/photo-1631193571017-58e28dcffa71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80"
+                  src={spaInterior}
                   alt="Spa interior"
                   className="w-full h-full object-cover"
                 />
@@ -205,7 +215,10 @@ const AboutPage = () => {
       </section>
 
       {/* Call to action */}
-      <section className="py-16 bg-primary text-white">
+      <section 
+        className="py-16 bg-primary text-white bg-cover bg-center" 
+        style={{ backgroundImage: `linear-gradient(rgba(25, 118, 116, 0.8), rgba(25, 118, 116, 0.9)), url(${wellnessStone})` }}
+      >
         <div className="container text-center">
           <h2 className="text-3xl font-serif mb-6">Ready to experience the Serenity difference?</h2>
           <Link to="/booking" className="btn bg-white text-primary hover:bg-gray-100">

@@ -6,7 +6,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-dark text-white pt-16 pb-8">
+    <footer className="bg-dark text-white pt-8 pb-4">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About Column */}
@@ -92,7 +92,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-700 mt-12 pt-6 text-center text-gray-400">
+        <div className="border-t border-gray-800 mt-4 pt-6 text-center text-gray-400">
           <p>© {currentYear} Serenity Spa & Wellness. All rights reserved.</p>
         </div>
       </div>

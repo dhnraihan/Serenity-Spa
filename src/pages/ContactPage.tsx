@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { motion } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
+import heroBg from '../assets/images/hero-bg.jpg';
 
 const ContactPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -45,12 +46,15 @@ const ContactPage = () => {
   });
 
   return (
-    <div className="pt-24">
+    <div className="pt-20">
       {/* Hero Banner */}
-      <div className="bg-secondary/30 py-12">
-        <div className="container">
+      <div 
+        className="py-20 bg-cover bg-center" 
+        style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${heroBg})` }}
+      >
+        <div className="container text-center text-white">
           <h1 className="text-4xl font-serif mb-4">Contact Us</h1>
-          <p className="text-lg max-w-3xl">
+          <p className="text-lg max-w-3xl mx-auto">
             Have questions or need assistance? We're here to help. Reach out to our team using the contact information below.
           </p>
         </div>

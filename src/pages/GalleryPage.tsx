@@ -1,6 +1,16 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
+import heroBg from '../assets/images/hero-bg.jpg';
+import spaInterior from '../assets/images/spa-interior.jpg';
+import swedishMassage from '../assets/images/swedish-massage.jpg';
+import deepTissueMassage from '../assets/images/deep-tissue-massage.jpg';
+import aromatherapyMassage from '../assets/images/aromatherapy-massage.jpg';
+import hotStoneMassage from '../assets/images/hot-stone-massage.jpg';
+import classicFacial from '../assets/images/classic-facial.jpg';
+import antiAgingFacial from '../assets/images/anti-aging-facial.jpg';
+import hydratingFacial from '../assets/images/hydrating-facial.jpg';
+import bodyScrub from '../assets/images/body-scrub.jpg';
 
 // Sample testimonial data
 const testimonials = [
@@ -58,49 +68,49 @@ const testimonials = [
 const galleryImages = [
   {
     id: 1,
-    src: 'https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+    src: spaInterior,
     alt: 'Spa reception area',
     category: 'interior'
   },
   {
     id: 2,
-    src: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+    src: deepTissueMassage,
     alt: 'Massage treatment',
     category: 'treatment'
   },
   {
     id: 3,
-    src: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1748&q=80',
+    src: bodyScrub,
     alt: 'Spa products',
     category: 'products'
   },
   {
     id: 4,
-    src: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+    src: classicFacial,
     alt: 'Facial treatment',
     category: 'treatment'
   },
   {
     id: 5,
-    src: 'https://images.unsplash.com/photo-1631193571017-58e28dcffa71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80',
+    src: heroBg,
     alt: 'Relaxation area',
     category: 'interior'
   },
   {
     id: 6,
-    src: 'https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+    src: antiAgingFacial,
     alt: 'Spa amenities',
     category: 'products'
   },
   {
     id: 7,
-    src: 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+    src: swedishMassage,
     alt: 'Outdoor relaxation area',
     category: 'interior'
   },
   {
     id: 8,
-    src: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+    src: hotStoneMassage,
     alt: 'Spa bath',
     category: 'treatment'
   }
@@ -128,12 +138,15 @@ const GalleryPage = () => {
   };
 
   return (
-    <div className="pt-24">
+    <div className="pt-20">
       {/* Hero Banner */}
-      <div className="bg-secondary/30 py-12">
-        <div className="container">
+      <div 
+        className="py-20 bg-cover bg-center" 
+        style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${heroBg})` }}
+      >
+        <div className="container text-center text-white">
           <h1 className="text-4xl font-serif mb-4">Gallery & Testimonials</h1>
-          <p className="text-lg max-w-3xl">
+          <p className="text-lg max-w-3xl mx-auto">
             Explore our spa environment and read what our clients have to say about their experiences.
           </p>
         </div>
