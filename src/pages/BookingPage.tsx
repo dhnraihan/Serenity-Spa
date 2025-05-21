@@ -113,111 +113,117 @@ const BookingPage = () => {
       </div>
 
 
-      <section className="appointment">
+      <section className="section py-20">
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
             {/* Booking Form */}
             <div className="lg:col-span-2">
               {submitSuccess ? (
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="bg-green-100 border border-green-300 text-green-800 p-6 rounded-lg shadow-md"
+                  className="bg-green-100 border border-green-300 text-green-800 p-8 rounded-lg shadow-xl"
                 >
-                  <h2 className="text-2xl font-serif mb-3">Booking Request Received!</h2>
-                  <p className="mb-4">
+                  <h2 className="text-3xl font-serif mb-4">Booking Request Received!</h2>
+                  <p className="mb-6 text-lg">
                     Thank you for booking with Serenity Spa & Wellness. We have received your request and will confirm your appointment shortly via email.
                   </p>
                   <button
                     onClick={() => setSubmitSuccess(false)}
-                    className="btn btn-primary"
+                    className="btn btn-primary px-8 py-3 hover:shadow-lg transition-all duration-300"
                   >
                     Book Another Appointment
                   </button>
                 </motion.div>
               ) : (
-                <form onSubmit={formik.handleSubmit} className="space-y-6">
-                  <h2 className="text-2xl font-serif mb-6">Personal Information</h2>
+                <motion.form 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  onSubmit={formik.handleSubmit} 
+                  className="space-y-8 bg-white p-8 rounded-lg shadow-xl"
+                >
+                  <h2 className="text-3xl font-serif mb-8 text-primary border-b border-gray-200 pb-4">Personal Information</h2>
                   
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* Name Field */}
                     <div>
-                      <label htmlFor="name" className="block mb-2 font-medium">
+                      <label htmlFor="name" className="block mb-3 font-medium text-gray-700">
                         Full Name <span className="text-red-500">*</span>
                       </label>
-                      <div className="flex items-center border rounded-md overflow-hidden focus-within:border-primary">
-                        <div className="p-3 border-r">
-                          {FiIcons.FiUser({className: "text-gray-400"})}
+                      <div className="flex items-center border border-gray-300 rounded-md overflow-hidden focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all duration-300">
+                        <div className="p-3.5 border-r border-gray-300 bg-gray-50">
+                          {FiIcons.FiUser({className: "text-gray-400", size: 20})}
                         </div>
                         <input
                           id="name"
                           type="text"
-                          className="w-full p-3 focus:outline-none"
+                          className="w-full p-3.5 focus:outline-none text-gray-700"
                           placeholder="John Doe"
                           {...formik.getFieldProps('name')}
                         />
                       </div>
                       {formik.touched.name && formik.errors.name && (
-                        <div className="text-red-500 mt-1 text-sm">{formik.errors.name}</div>
+                        <div className="text-red-500 mt-2 text-sm">{formik.errors.name}</div>
                       )}
                     </div>
 
                     {/* Phone Field */}
                     <div>
-                      <label htmlFor="phone" className="block mb-2 font-medium">
+                      <label htmlFor="phone" className="block mb-3 font-medium text-gray-700">
                         Phone <span className="text-red-500">*</span>
                       </label>
-                      <div className="flex items-center border rounded-md overflow-hidden focus-within:border-primary">
-                        <div className="p-3 border-r">
-                          {FiIcons.FiPhone({className: "text-gray-400"})}
+                      <div className="flex items-center border border-gray-300 rounded-md overflow-hidden focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all duration-300">
+                        <div className="p-3.5 border-r border-gray-300 bg-gray-50">
+                          {FiIcons.FiPhone({className: "text-gray-400", size: 20})}
                         </div>
                         <input
                           id="phone"
                           type="tel"
-                          className="w-full p-3 focus:outline-none"
+                          className="w-full p-3.5 focus:outline-none text-gray-700"
                           placeholder="(123) 456-7890"
                           {...formik.getFieldProps('phone')}
                         />
                       </div>
                       {formik.touched.phone && formik.errors.phone && (
-                        <div className="text-red-500 mt-1 text-sm">{formik.errors.phone}</div>
+                        <div className="text-red-500 mt-2 text-sm">{formik.errors.phone}</div>
                       )}
                     </div>
 
                     {/* Email Field */}
                     <div>
-                      <label htmlFor="email" className="block mb-2 font-medium">
+                      <label htmlFor="email" className="block mb-3 font-medium text-gray-700">
                         Email <span className="text-red-500">*</span>
                       </label>
-                      <div className="flex items-center border rounded-md overflow-hidden focus-within:border-primary">
-                        <div className="p-3 border-r">
-                          {FiIcons.FiMail({className: "text-gray-400"})}
+                      <div className="flex items-center border border-gray-300 rounded-md overflow-hidden focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all duration-300">
+                        <div className="p-3.5 border-r border-gray-300 bg-gray-50">
+                          {FiIcons.FiMail({className: "text-gray-400", size: 20})}
                         </div>
                         <input
                           id="email"
                           type="email"
-                          className="w-full p-3 focus:outline-none"
+                          className="w-full p-3.5 focus:outline-none text-gray-700"
                           placeholder="email@example.com"
                           {...formik.getFieldProps('email')}
                         />
                       </div>
                       {formik.touched.email && formik.errors.email && (
-                        <div className="text-red-500 mt-1 text-sm">{formik.errors.email}</div>
+                        <div className="text-red-500 mt-2 text-sm">{formik.errors.email}</div>
                       )}
                     </div>
 
                     {/* Service Selection */}
                     <div>
-                      <label htmlFor="service" className="block mb-2 font-medium">
+                      <label htmlFor="service" className="block mb-3 font-medium text-gray-700">
                         Service <span className="text-red-500">*</span>
                       </label>
-                      <div className="flex items-center border rounded-md overflow-hidden focus-within:border-primary">
-                        <div className="p-3 border-r">
-                          {FiIcons.FiMessageSquare({className: "text-gray-400"})}
+                      <div className="flex items-center border border-gray-300 rounded-md overflow-hidden focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all duration-300">
+                        <div className="p-3.5 border-r border-gray-300 bg-gray-50">
+                          {FiIcons.FiMessageSquare({className: "text-gray-400", size: 20})}
                         </div>
                         <select
                           id="service"
-                          className="w-full p-3 focus:outline-none"
+                          className="w-full p-3.5 focus:outline-none text-gray-700 appearance-none bg-white"
                           {...formik.getFieldProps('service')}
                         >
                           <option value="">Select a service</option>
@@ -229,43 +235,43 @@ const BookingPage = () => {
                         </select>
                       </div>
                       {formik.touched.service && formik.errors.service && (
-                        <div className="text-red-500 mt-1 text-sm">{formik.errors.service}</div>
+                        <div className="text-red-500 mt-2 text-sm">{formik.errors.service}</div>
                       )}
                     </div>
 
                     {/* Date Field */}
                     <div>
-                      <label htmlFor="date" className="block mb-2 font-medium">
+                      <label htmlFor="date" className="block mb-3 font-medium text-gray-700">
                         Date <span className="text-red-500">*</span>
                       </label>
-                      <div className="flex items-center border rounded-md overflow-hidden focus-within:border-primary">
-                        <div className="p-3 border-r">
-                          {FiIcons.FiCalendar({className: "text-gray-400"})}
+                      <div className="flex items-center border border-gray-300 rounded-md overflow-hidden focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all duration-300">
+                        <div className="p-3.5 border-r border-gray-300 bg-gray-50">
+                          {FiIcons.FiCalendar({className: "text-gray-400", size: 20})}
                         </div>
                         <input
                           id="date"
                           type="date"
-                          className="w-full p-3 focus:outline-none"
+                          className="w-full p-3.5 focus:outline-none text-gray-700"
                           {...formik.getFieldProps('date')}
                         />
                       </div>
                       {formik.touched.date && formik.errors.date && (
-                        <div className="text-red-500 mt-1 text-sm">{formik.errors.date}</div>
+                        <div className="text-red-500 mt-2 text-sm">{formik.errors.date}</div>
                       )}
                     </div>
 
                     {/* Time Field */}
                     <div>
-                      <label htmlFor="time" className="block mb-2 font-medium">
+                      <label htmlFor="time" className="block mb-3 font-medium text-gray-700">
                         Time <span className="text-red-500">*</span>
                       </label>
-                      <div className="flex items-center border rounded-md overflow-hidden focus-within:border-primary">
-                        <div className="p-3 border-r">
-                          {FiIcons.FiClock({className: "text-gray-400"})}
+                      <div className="flex items-center border border-gray-300 rounded-md overflow-hidden focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all duration-300">
+                        <div className="p-3.5 border-r border-gray-300 bg-gray-50">
+                          {FiIcons.FiClock({className: "text-gray-400", size: 20})}
                         </div>
                         <select
                           id="time"
-                          className="w-full p-3 focus:outline-none"
+                          className="w-full p-3.5 focus:outline-none text-gray-700 appearance-none bg-white"
                           {...formik.getFieldProps('time')}
                         >
                           <option value="">Select a time</option>
@@ -277,20 +283,20 @@ const BookingPage = () => {
                         </select>
                       </div>
                       {formik.touched.time && formik.errors.time && (
-                        <div className="text-red-500 mt-1 text-sm">{formik.errors.time}</div>
+                        <div className="text-red-500 mt-2 text-sm">{formik.errors.time}</div>
                       )}
                     </div>
                   </div>
 
                   {/* Notes Field */}
                   <div>
-                    <label htmlFor="notes" className="block mb-2 font-medium">
+                    <label htmlFor="notes" className="block mb-3 font-medium text-gray-700">
                       Special Requests or Notes
                     </label>
                     <textarea
                       id="notes"
                       rows={4}
-                      className="w-full p-3 border rounded-md focus:outline-none focus:border-primary"
+                      className="w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300"
                       placeholder="Any special requests or information we should know..."
                       {...formik.getFieldProps('notes')}
                     ></textarea>
@@ -298,7 +304,7 @@ const BookingPage = () => {
 
                   {/* Error Message */}
                   {submitError && (
-                    <div className="text-red-500 bg-red-50 p-3 rounded-md border border-red-200">
+                    <div className="text-red-500 bg-red-50 p-4 rounded-md border border-red-200">
                       {submitError}
                     </div>
                   )}
@@ -308,50 +314,50 @@ const BookingPage = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className={`btn btn-primary w-full md:w-auto ${
+                      className={`btn btn-primary w-full md:w-auto px-8 py-3 text-lg hover:shadow-lg transition-all duration-300 ${
                         isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
                       }`}
                     >
                       {isSubmitting ? 'Processing...' : 'Book Appointment'}
                     </button>
                   </div>
-                </form>
+                </motion.form>
               )}
             </div>
 
             {/* Sidebar */}
             <div>
-              <div className="bg-secondary/20 p-6 rounded-lg sticky top-24">
-                <h3 className="text-xl font-serif mb-4">Booking Information</h3>
-                <div className="space-y-4">
+              <div className="bg-secondary/20 p-8 rounded-lg sticky top-24 shadow-lg border border-secondary/10">
+                <h3 className="text-2xl font-serif mb-6 text-primary">Booking Information</h3>
+                <div className="space-y-6">
                   <div>
-                    <h4 className="font-medium">Opening Hours</h4>
-                    <ul className="mt-2 space-y-1 text-gray-600">
+                    <h4 className="font-medium text-lg mb-3">Opening Hours</h4>
+                    <ul className="mt-2 space-y-2 text-gray-600">
                       <li className="flex justify-between">
                         <span>Monday - Friday:</span>
-                        <span>9:00 AM - 8:00 PM</span>
+                        <span className="font-medium">9:00 AM - 8:00 PM</span>
                       </li>
                       <li className="flex justify-between">
                         <span>Saturday:</span>
-                        <span>9:00 AM - 6:00 PM</span>
+                        <span className="font-medium">9:00 AM - 6:00 PM</span>
                       </li>
                       <li className="flex justify-between">
                         <span>Sunday:</span>
-                        <span>10:00 AM - 4:00 PM</span>
+                        <span className="font-medium">10:00 AM - 4:00 PM</span>
                       </li>
                     </ul>
                   </div>
 
                   <div>
-                    <h4 className="font-medium">Contact</h4>
+                    <h4 className="font-medium text-lg mb-3">Contact</h4>
                     <p className="mt-2 text-gray-600">
                       If you prefer to book by phone or have questions, please call us at:
                     </p>
-                    <p className="font-medium mt-1">(123) 456-7890</p>
+                    <p className="font-medium mt-2 text-lg text-primary">(123) 456-7890</p>
                   </div>
 
                   <div>
-                    <h4 className="font-medium">Cancellation Policy</h4>
+                    <h4 className="font-medium text-lg mb-3">Cancellation Policy</h4>
                     <p className="mt-2 text-gray-600">
                       We require 24 hours notice for cancellations or rescheduling to avoid a 50% cancellation fee.
                     </p>

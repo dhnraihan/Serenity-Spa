@@ -11,6 +11,7 @@ import classicFacial from '../assets/images/classic-facial.jpg';
 import antiAgingFacial from '../assets/images/anti-aging-facial.jpg';
 import hydratingFacial from '../assets/images/hydrating-facial.jpg';
 import bodyScrub from '../assets/images/body-scrub.jpg';
+import { Link } from 'react-router-dom';
 
 // Sample testimonial data
 const testimonials = [
@@ -141,45 +142,46 @@ const GalleryPage = () => {
     <div className="pt-20">
       {/* Hero Banner */}
       <div 
-        className="py-20 bg-cover bg-center" 
-        style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${heroBg})` }}
+        className="py-28 bg-cover bg-center bg-fixed" 
+        style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${heroBg})` }}
       >
         <div className="container text-center text-white">
-          <h1 className="text-4xl font-serif mb-4">Gallery & Testimonials</h1>
-          <p className="text-lg max-w-3xl mx-auto">
+          <h1 className="text-5xl font-serif mb-6 tracking-wide">Gallery & Testimonials</h1>
+          <p className="text-xl max-w-3xl mx-auto font-light leading-relaxed">
             Explore our spa environment and read what our clients have to say about their experiences.
           </p>
         </div>
       </div>
 
       {/* Testimonials Section */}
-      <section className="section bg-white">
+      <section className="section bg-white py-24">
         <div className="container">
-          <h2 className="section-title">Client Testimonials</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {testimonials.map((testimonial) => (
+          <h2 className="text-4xl font-serif mb-16 text-center text-primary">Client Testimonials</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {testimonials.map((testimonial, index) => (
               <motion.div
                 key={testimonial.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="bg-light p-6 rounded-lg shadow-md"
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-light p-8 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300"
               >
-                <div className="flex mb-3">
+                <div className="flex mb-4">
                   {[...Array(5)].map((_, i) => (
-                    <span key={i}>
+                    <span key={i} className="mr-1">
                       {FiIcons.FiStar({ 
+                        size: 20,
                         className: `${i < testimonial.rating ? 'text-yellow-400' : 'text-gray-300'} fill-current` 
                       })}
                     </span>
                   ))}
                 </div>
-                <p className="text-gray-600 mb-4 italic">"{testimonial.comment}"</p>
+                <p className="text-gray-600 mb-6 italic text-lg leading-relaxed">"{testimonial.comment}"</p>
                 <div className="flex justify-between items-end">
                   <div>
-                    <h4 className="font-medium">{testimonial.name}</h4>
-                    <p className="text-sm text-gray-500">{testimonial.service}</p>
+                    <h4 className="font-medium text-lg">{testimonial.name}</h4>
+                    <p className="text-primary">{testimonial.service}</p>
                   </div>
                   <p className="text-sm text-gray-500">{testimonial.date}</p>
                 </div>
@@ -190,15 +192,15 @@ const GalleryPage = () => {
       </section>
 
       {/* Gallery Section */}
-      <section className="section bg-light">
+      <section className="section bg-light py-24">
         <div className="container">
-          <h2 className="section-title">Spa Gallery</h2>
+          <h2 className="text-4xl font-serif mb-16 text-center text-primary">Spa Gallery</h2>
           
           {/* Filter Buttons */}
-          <div className="flex justify-center mb-8 space-x-4 flex-wrap">
+          <div className="flex justify-center mb-12 space-x-6 flex-wrap">
             <button
               onClick={() => setFilter('all')}
-              className={`px-4 py-2 rounded-md transition-all ${
+              className={`px-6 py-3 rounded-md transition-all text-lg font-medium shadow ${
                 filter === 'all'
                   ? 'bg-primary text-white'
                   : 'bg-white text-dark hover:bg-primary/10'
@@ -208,7 +210,7 @@ const GalleryPage = () => {
             </button>
             <button
               onClick={() => setFilter('interior')}
-              className={`px-4 py-2 rounded-md transition-all ${
+              className={`px-6 py-3 rounded-md transition-all text-lg font-medium shadow ${
                 filter === 'interior'
                   ? 'bg-primary text-white'
                   : 'bg-white text-dark hover:bg-primary/10'
@@ -218,7 +220,7 @@ const GalleryPage = () => {
             </button>
             <button
               onClick={() => setFilter('treatment')}
-              className={`px-4 py-2 rounded-md transition-all ${
+              className={`px-6 py-3 rounded-md transition-all text-lg font-medium shadow ${
                 filter === 'treatment'
                   ? 'bg-primary text-white'
                   : 'bg-white text-dark hover:bg-primary/10'
@@ -228,7 +230,7 @@ const GalleryPage = () => {
             </button>
             <button
               onClick={() => setFilter('products')}
-              className={`px-4 py-2 rounded-md transition-all ${
+              className={`px-6 py-3 rounded-md transition-all text-lg font-medium shadow ${
                 filter === 'products'
                   ? 'bg-primary text-white'
                   : 'bg-white text-dark hover:bg-primary/10'
@@ -239,22 +241,28 @@ const GalleryPage = () => {
           </div>
           
           {/* Gallery Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {filteredImages.map((image) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {filteredImages.map((image, index) => (
               <motion.div
                 key={image.id}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-                className="overflow-hidden rounded-lg shadow-md cursor-pointer"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="overflow-hidden rounded-lg shadow-xl cursor-pointer group"
                 onClick={() => openLightbox(image.src, image.alt)}
-                whileHover={{ scale: 1.02 }}
               >
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  className="w-full h-64 object-cover transition-all hover:scale-105"
-                />
+                <div className="relative aspect-square">
+                  <img 
+                    src={image.src} 
+                    alt={image.alt} 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                  />
+                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 flex items-center justify-center transition-all duration-300">
+                    <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-primary/70 rounded-full p-3">
+                      {FiIcons.FiZoomIn({ size: 24 })}
+                    </span>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -263,29 +271,44 @@ const GalleryPage = () => {
 
       {/* Lightbox */}
       {selectedImage && (
-        <div
-          className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 md:p-8"
           onClick={closeLightbox}
         >
-          <button
-            className="absolute top-4 right-4 text-white hover:text-gray-300"
+          <button 
+            className="absolute top-6 right-6 text-white hover:text-gray-300 transition-colors z-10"
             onClick={closeLightbox}
           >
-            {FiIcons.FiX({size: 30})}
+            {FiIcons.FiX({ size: 32 })}
           </button>
-          <div
-            className="max-w-4xl max-h-[80vh]"
+          <div 
+            className="max-w-6xl max-h-full relative"
             onClick={(e) => e.stopPropagation()}
           >
-            <img
-              src={selectedImage.src}
-              alt={selectedImage.alt}
-              className="max-w-full max-h-[80vh] object-contain"
+            <img 
+              src={selectedImage.src} 
+              alt={selectedImage.alt} 
+              className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl" 
             />
-            <p className="text-white text-center mt-4">{selectedImage.alt}</p>
+            <p className="text-white text-center mt-4 text-lg font-light">{selectedImage.alt}</p>
           </div>
-        </div>
+        </motion.div>
       )}
+
+      {/* Call to action */}
+      <section 
+        className="py-24 bg-cover bg-center bg-fixed" 
+        style={{ backgroundImage: `linear-gradient(rgba(25, 118, 116, 0.7), rgba(25, 118, 116, 0.8)), url(${heroBg})` }}
+      >
+        <div className="container text-center">
+          <h2 className="text-4xl font-serif mb-8 text-white tracking-wide">Experience the Serenity Difference</h2>
+          <Link to="/booking" className="btn bg-white text-primary hover:bg-gray-100 hover:shadow-xl transition-all duration-300 text-lg px-8 py-3">
+            Book Your Visit Today
+          </Link>
+        </div>
+      </section>
     </div>
   );
 };

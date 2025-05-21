@@ -51,29 +51,29 @@ const AboutPage = () => {
     <div className="pt-20">
       {/* Hero Banner */}
       <div 
-        className="py-20 bg-cover bg-center" 
-        style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${heroBg})` }}
+        className="py-28 bg-cover bg-center bg-fixed" 
+        style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${heroBg})` }}
       >
         <div className="container text-center text-white">
-          <h1 className="text-4xl font-serif mb-4">About Serenity Spa & Wellness</h1>
-          <p className="text-lg max-w-3xl mx-auto">
+          <h1 className="text-5xl font-serif mb-6 tracking-wide">About Serenity Spa & Wellness</h1>
+          <p className="text-xl max-w-3xl mx-auto font-light leading-relaxed">
             Discover our journey, values, and the passionate team behind our exceptional spa experiences.
           </p>
         </div>
       </div>
 
       {/* Our Story Section */}
-      <section className="section bg-white">
+      <section className="section bg-white py-24">
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.7 }}
             >
-              <h2 className="text-3xl font-serif mb-6">Our Story</h2>
-              <div className="space-y-4">
+              <h2 className="text-4xl font-serif mb-8 text-primary">Our Story</h2>
+              <div className="space-y-5 text-gray-700 leading-relaxed">
                 <p>
                   Serenity Spa & Wellness was founded in 2010 with a simple yet profound mission: to create a sanctuary where clients could escape the stresses of everyday life and find true relaxation and renewal.
                 </p>
@@ -93,19 +93,19 @@ const AboutPage = () => {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
               className="relative"
             >
-              <div className="aspect-ratio-1/1 rounded-lg overflow-hidden shadow-lg">
+              <div className="aspect-ratio-1/1 rounded-lg overflow-hidden shadow-2xl">
                 <img
                   src={spaInterior}
                   alt="Spa interior"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 -left-6 bg-primary text-white p-4 rounded-lg shadow-lg">
-                <p className="text-2xl font-serif">12+ Years</p>
-                <p>of excellence</p>
+              <div className="absolute -bottom-8 -left-8 bg-primary text-white p-6 rounded-lg shadow-xl">
+                <p className="text-3xl font-serif">12+ Years</p>
+                <p className="text-sm font-light tracking-wider">of excellence</p>
               </div>
             </motion.div>
           </div>
@@ -113,62 +113,86 @@ const AboutPage = () => {
       </section>
 
       {/* Our Values */}
-      <section className="section bg-light">
+      <section className="section bg-light py-24">
         <div className="container">
-          <h2 className="section-title">Our Values</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary mb-4">
-                <span className="text-2xl font-serif text-primary">1</span>
+          <h2 className="text-4xl font-serif mb-16 text-center text-primary">Our Values</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+            <motion.div 
+              className="bg-white p-8 rounded-lg shadow-xl text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-secondary mb-6">
+                <span className="text-3xl font-serif text-primary">1</span>
               </div>
-              <h3 className="text-xl font-serif mb-3">Excellence</h3>
+              <h3 className="text-2xl font-serif mb-4">Excellence</h3>
               <p className="text-gray-600">
                 We strive for excellence in every service, treatment, and interaction with our clients.
               </p>
-            </div>
+            </motion.div>
             
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary mb-4">
-                <span className="text-2xl font-serif text-primary">2</span>
+            <motion.div 
+              className="bg-white p-8 rounded-lg shadow-xl text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-secondary mb-6">
+                <span className="text-3xl font-serif text-primary">2</span>
               </div>
-              <h3 className="text-xl font-serif mb-3">Personalization</h3>
+              <h3 className="text-2xl font-serif mb-4">Personalization</h3>
               <p className="text-gray-600">
                 We believe in customizing experiences to meet the unique needs of each client.
               </p>
-            </div>
+            </motion.div>
             
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary mb-4">
-                <span className="text-2xl font-serif text-primary">3</span>
+            <motion.div 
+              className="bg-white p-8 rounded-lg shadow-xl text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-secondary mb-6">
+                <span className="text-3xl font-serif text-primary">3</span>
               </div>
-              <h3 className="text-xl font-serif mb-3">Integrity</h3>
+              <h3 className="text-2xl font-serif mb-4">Integrity</h3>
               <p className="text-gray-600">
                 We operate with honesty, transparency, and the highest ethical standards.
               </p>
-            </div>
+            </motion.div>
             
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary mb-4">
-                <span className="text-2xl font-serif text-primary">4</span>
+            <motion.div 
+              className="bg-white p-8 rounded-lg shadow-xl text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-secondary mb-6">
+                <span className="text-3xl font-serif text-primary">4</span>
               </div>
-              <h3 className="text-xl font-serif mb-3">Continuous Growth</h3>
+              <h3 className="text-2xl font-serif mb-4">Continuous Growth</h3>
               <p className="text-gray-600">
                 We continually educate ourselves and improve our offerings to better serve our clients.
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Meet Our Team */}
-      <section className="section bg-white">
+      <section className="section bg-white py-24">
         <div className="container">
-          <h2 className="section-title">Meet Our Team</h2>
-          <p className="text-center text-lg max-w-3xl mx-auto mb-12 text-gray-600">
+          <h2 className="text-4xl font-serif mb-6 text-center text-primary">Meet Our Team</h2>
+          <p className="text-center text-xl max-w-3xl mx-auto mb-16 text-gray-600 font-light">
             Our team of licensed therapists and wellness specialists are dedicated to providing exceptional service and personalized care.
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             {teamMembers.map((member) => (
               <motion.div
                 key={member.id}
@@ -176,7 +200,7 @@ const AboutPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: member.id * 0.1 }}
-                className="bg-white rounded-lg overflow-hidden shadow-md"
+                className="bg-white rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300"
               >
                 <div className="relative group">
                   <img
@@ -185,22 +209,22 @@ const AboutPage = () => {
                     className="w-full aspect-[3/4] object-cover"
                   />
                   <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-all duration-300 flex items-center justify-center">
-                    <a href="#" className="text-white opacity-0 group-hover:opacity-100 transition-all duration-300">
-                      {FiIcons.FiInstagram({size: 24})}
+                    <a href="#" className="text-white opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 transform">
+                      {FiIcons.FiInstagram({size: 28})}
                     </a>
                   </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-serif mb-1">{member.name}</h3>
-                  <p className="text-primary font-medium mb-3">{member.role}</p>
-                  <p className="text-gray-600 mb-4">{member.bio}</p>
+                <div className="p-8">
+                  <h3 className="text-2xl font-serif mb-2">{member.name}</h3>
+                  <p className="text-primary font-medium mb-4">{member.role}</p>
+                  <p className="text-gray-600 mb-6">{member.bio}</p>
                   <div>
-                    <p className="font-medium mb-2">Specialties:</p>
+                    <p className="font-medium mb-3">Specialties:</p>
                     <div className="flex flex-wrap gap-2">
                       {member.specialties.map((specialty, index) => (
                         <span
                           key={index}
-                          className="text-xs bg-secondary/30 text-primary px-2 py-1 rounded"
+                          className="text-xs bg-secondary/30 text-primary px-3 py-1.5 rounded-full"
                         >
                           {specialty}
                         </span>
@@ -216,12 +240,12 @@ const AboutPage = () => {
 
       {/* Call to action */}
       <section 
-        className="py-16 bg-primary text-white bg-cover bg-center" 
-        style={{ backgroundImage: `linear-gradient(rgba(25, 118, 116, 0.8), rgba(25, 118, 116, 0.9)), url(${wellnessStone})` }}
+        className="py-24 bg-cover bg-center bg-fixed" 
+        style={{ backgroundImage: `linear-gradient(rgba(25, 118, 116, 0.7), rgba(25, 118, 116, 0.8)), url(${wellnessStone})` }}
       >
         <div className="container text-center">
-          <h2 className="text-3xl font-serif mb-6">Ready to experience the Serenity difference?</h2>
-          <Link to="/booking" className="btn bg-white text-primary hover:bg-gray-100">
+          <h2 className="text-4xl font-serif mb-8 text-white tracking-wide">Ready to experience the Serenity difference?</h2>
+          <Link to="/booking" className="btn bg-white text-primary hover:bg-gray-100 hover:shadow-xl transition-all duration-300 text-lg px-8 py-3">
             Book Your First Appointment
           </Link>
         </div>
