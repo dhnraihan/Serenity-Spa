@@ -14,7 +14,7 @@ import './App.css';
 
 function App() {
   return (
-    <Router basename="/Serenity-Spa">
+    <Router basename="/">
       <ScrollToTop />
       <div className="flex flex-col min-h-screen">
         <Header />
