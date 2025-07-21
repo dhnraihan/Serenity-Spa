@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/Serenity-Spa/static/css/main.40ebffb1.css",
-    "main.js": "/Serenity-Spa/static/js/main.6c0ee973.js",
-    "static/js/453.f8bfb14c.chunk.js": "/Serenity-Spa/static/js/453.f8bfb14c.chunk.js",
+    "main.css": "/Serenity-Spa/static/css/main.122d707e.css",
+    "main.js": "/Serenity-Spa/static/js/main.8961f086.js",
+    "static/js/453.38985c10.chunk.js": "/Serenity-Spa/static/js/453.38985c10.chunk.js",
     "static/media/milk-honey-wrap.jpg": "/Serenity-Spa/static/media/milk-honey-wrap.d3b70096e2a9252264cd.jpg",
     "static/media/relaxation-day.jpg": "/Serenity-Spa/static/media/relaxation-day.5a30332cee6c7e4b1097.jpg",
     "static/media/hydrating-facial.jpg": "/Serenity-Spa/static/media/hydrating-facial.be3dff472bd5a40ed7c6.jpg",
@@ -24,12 +24,12 @@
     "static/media/wellness-stone.jpg": "/Serenity-Spa/static/media/wellness-stone.b736bda46dfc6ebb8ae8.jpg",
     "static/media/signature-package.jpg": "/Serenity-Spa/static/media/signature-package.89e546ae1e105ab42d10.jpg",
     "index.html": "/Serenity-Spa/index.html",
-    "main.40ebffb1.css.map": "/Serenity-Spa/static/css/main.40ebffb1.css.map",
-    "main.6c0ee973.js.map": "/Serenity-Spa/static/js/main.6c0ee973.js.map",
-    "453.f8bfb14c.chunk.js.map": "/Serenity-Spa/static/js/453.f8bfb14c.chunk.js.map"
+    "main.122d707e.css.map": "/Serenity-Spa/static/css/main.122d707e.css.map",
+    "main.8961f086.js.map": "/Serenity-Spa/static/js/main.8961f086.js.map",
+    "453.38985c10.chunk.js.map": "/Serenity-Spa/static/js/453.38985c10.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.40ebffb1.css",
-    "static/js/main.6c0ee973.js"
+    "static/css/main.122d707e.css",
+    "static/js/main.8961f086.js"
   ]
 }
